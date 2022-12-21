@@ -54,4 +54,12 @@ class Problem001Test {
         var result = t.containsNumbers(a, k);
         assertTrue(result);
     }
+
+    @Test
+    void test_empty_list() {
+        int[] a = new int[]{  };
+        int k = 1;
+        var result = t.containsNumbers(a, k);
+        assertFalse(result);
+    }
 }

@@ -1,5 +1,7 @@
 package kz.sabyrzhan.dailycodingproblem.problem001;
 
+import java.util.Arrays;
+
 /*
 Good morning! Here's your coding interview problem for today.
 
@@ -13,19 +15,21 @@ Bonus: Can you do this in one pass?
  */
 public class Problem001 {
     public boolean containsNumbers(int[] numbers, int k) {
+        Arrays.sort(numbers);
         int i = 0;
         int j = numbers.length - 1;
         while (i < j) {
             int a = numbers[i];
             int b = numbers[j];
-            if (a + b == k) {
+            int sum = a + b;
+            if (sum == k) {
                 return true;
             }
 
-            if (a < b) {
-                i++;
-            } else {
+            if (sum > k) {
                 j--;
+            } else {
+                i++;
             }
         }
 
