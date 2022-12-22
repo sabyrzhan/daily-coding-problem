@@ -9,8 +9,10 @@ For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120
 
 Follow-up: what if you can't use division?
 """
-class Solution:
-    def solveProductWithDivision(self, items = []):
+
+
+class SolutionWithDivision:
+    def solveProduct(self, items = []):
         total = 1
         containsZero = False
         for v in items:
@@ -25,3 +27,29 @@ class Solution:
                 items[i] = total / items[i]
 
         return items
+
+
+class SolutionWithoutDivision:
+    def solveProduct(self, items = []):
+        total = 1
+        containsZero = False
+        for v in items:
+            total *= v
+            if v == 0:
+                containsZero = True
+
+        for i in range(len(items)):
+            if containsZero:
+                items[i] = 0
+            else:
+                items[i] = self.__divideNumber(total, items[i])
+
+        return items
+
+    def __divideNumber(self, divident, divisor):
+        quotient = 0
+        while(divident >= divisor):
+            divident = divident - divisor
+            quotient += 1
+
+        return quotient

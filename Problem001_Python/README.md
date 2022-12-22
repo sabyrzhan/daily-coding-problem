@@ -3,5 +3,5 @@
 1. Create separate env: `venv`, `conda` etc
 2. Then run:
 ```shell
-python -m unittest discover -s tests -p "*.py"  
+python -m unittest discover -s tests -p "*Test.py"  
 ```
